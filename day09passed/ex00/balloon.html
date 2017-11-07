@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>balloon.html</title>
+        <style>
+            #Balloon{
+                width: 200px;
+                height: 200px;
+                margin: auto;
+                background-color: red;
+                border-radius: 100px;
+            }
+        </style>
+        <script>
+            var colour;
+            colour = "red";
+            function BalloonClicked() {
+                var balloon;
+                balloon = document.getElementById("Balloon");
+                if (balloon.offsetHeight < 420) {
+                    balloon.style.width = (balloon.offsetWidth + 10) + 'px';
+                    balloon.style.height = (balloon.offsetHeight + 10) + 'px';
+                    balloon.style.borderRadius = (balloon.offsetHeight / 2) + 'px';
+                    if (colour == "red"){
+                        balloon.style.backgroundColor = "green";
+                        colour = "green";
+                    }
+                    else if (colour == "green"){
+                        balloon.style.backgroundColor = "blue";
+                        colour = "blue";
+                    }
+                    else if (colour == "blue"){
+                        balloon.style.backgroundColor = "red";
+                        colour = "red";
+                    }
+                }
+                else {
+                    balloon.style.width = 200 + 'px';
+                    balloon.style.height = 200 + 'px';
+                    balloon.style.borderRadius = 100 + 'px';
+                }
+            }
+            function MouseLeft() {
+                var balloon;
+                balloon = document.getElementById("Balloon");
+                if (balloon.offsetHeight >= 205) {
+                    balloon.style.width = (balloon.offsetWidth - 5) + 'px';
+                    balloon.style.height = (balloon.offsetHeight - 5) + 'px';
+                    balloon.style.borderRadius = (balloon.offsetHeight / 2) + 'px';
+                    if (colour == "red"){
+                        balloon.style.backgroundColor = "blue";
+                        colour = "blue";
+                    }
+                    else if (colour == "green"){
+                        balloon.style.backgroundColor = "red";
+                        colour = "red";
+                    }
+                    else if (colour == "blue"){
+                        balloon.style.backgroundColor = "green";
+                        colour = "green";
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div id="Balloon" onclick="BalloonClicked()" onmouseleave="MouseLeft()"></div>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+.showcase img
+{
+	float: left;
+}
+
+.basic-info
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.info
+{
+	margin-left: 1%;
+}

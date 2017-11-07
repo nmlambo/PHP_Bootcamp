@@ -1,0 +1,65 @@
+.input-label
+{
+	color: #f8f8f2;
+	overflow: hidden;
+	font-family: "Nova Mono";
+	font-size: 2vh;
+	line-height: 1.5em;
+	position: absolute;
+	width: 30%;
+	left: 1%;
+}
+
+.input-box
+{
+	color: #282a36;
+	background-color: #f8f8f2;
+	border: none;
+	border-left: 2px solid #bd93f9;
+	overflow: hidden;
+	font-family: "Roboto";
+	font-size: 2vh;
+	position: absolute;
+	left: 30%;
+	width: 70%;
+	height: 100%;
+}
+
+.input-box:focus
+{
+	outline-width: 0;
+	color: #f8f8f2;
+	background-color: #282a36;
+}
+.input-container
+{
+	display: block;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid #bd93f9;
+	border-radius: 5px;
+	width: 40%;
+	min-width: 100px;
+	min-height: 40px;
+	height: 3.5%;
+}
+
+.input-container:focus
+{
+	color: #44475a;
+	background-color: #bd93f9;
+}
+
+#button-submit
+{
+	margin-top: 2%;
+	margin-left: 55%;
+}
+
+#button-submit:focus
+{
+	outline-width: 0;
+	color: #282a36;
+	background-color: #bd93f9;
+}

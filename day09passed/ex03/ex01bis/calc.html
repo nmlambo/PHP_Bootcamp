@@ -1,0 +1,86 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>calc.html</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            
+            function add(left, right)
+            {
+                return left + right;
+            }
+            
+            function sub(left, right)
+            {
+                return left - right;
+            }
+            
+            function mult(left, right)
+            {
+                return left * right;
+            }
+            
+            function div(left, right)
+            {
+                if (right != 0)
+                    return left / right;
+                else
+                    return "It's over 9000!";
+            }
+            
+            function mod(left, right)
+            {
+                if (right != 0)
+                    return left % right;
+                else
+                    return "It's over 9000!";
+            }
+            
+            $(document).ready(function()
+            {
+                var i;
+                
+                setInterval(function(){ alert("Please, use me..."); }, 30000);
+                
+                $("#try").click(function()
+                {
+                    var left = parseInt($("#l_s").val());
+                    var right = parseInt($("#r_s").val());
+                    var operator = $("#op").val();
+                    if (isNaN(left) == true || isNaN(right) == true || left < 0 || right < 0)
+                        alert("Error :(");
+                    else
+                    {
+                        if (operator == "plus")
+                            i = add(left, right);
+                        else if (operator == "minus")
+                            i = sub(left, right);
+                        else if (operator == "mult")
+                            i = mult(left, right);
+                        else if (operator == "div")
+                            i = div(left, right);
+                        else if (operator == "mod")
+                            i = mod(left, right);
+                        console.log(i);
+                        alert(i);
+                    }
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return false">
+            <input type="text" name="left_side" value="" id="l_s">
+            <select name="operator" id="op">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+                <option value="mult">*</option>
+                <option value="div">/</option>
+                <option value="mod">%</option>
+            </select>
+            <input type="text" name="right_side" value="" id="r_s">
+            <input type="submit" name="try_me" value="Try me!" id="try">
+        </form>
+    </body>
+</html>

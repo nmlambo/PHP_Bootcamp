@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>balloon.html</title>
+        <style>
+            #Balloon{
+                width: 200px;
+                height: 200px;
+                margin: auto;
+                background-color: red;
+                border-radius: 100px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            
+            function ChangeColour(balloon, colour)
+            {
+                if (colour == "red")
+                {
+                    balloon.css("background-color", "green");
+                    return "green";
+                }
+                else if (colour == "green")
+                {
+                    balloon.css("background-color", "blue");
+                    return "blue";
+                }
+                else if (colour == "blue")
+                {
+                    balloon.css("background-color", "red");
+                    return "red";
+                }   
+            }
+            
+            function ReverseChangeColour(balloon, colour)
+            {
+                if (colour == "red")
+                {
+                    balloon.css("background-color", "blue");
+                    return "blue";
+                }
+                else if (colour == "green")
+                {
+                    balloon.css("background-color", "red");
+                    return "red";
+                }
+                else if (colour == "blue")
+                {
+                    balloon.css("background-color", "green");
+                    return "green";
+                }   
+            }
+            
+            function IncreaseSize(balloon)
+            {
+                var size = balloon.width();
+                
+                if (size < 420)
+                {
+                    balloon.css("width", (size+10)+"px");
+                    balloon.css("height", (size+10)+"px");
+                    balloon.css("border-radius", ((size+10)/2)+"px");
+                }
+                else
+                {
+                    balloon.css("width", "200px");
+                    balloon.css("height", "200px");
+                    balloon.css("border-radius", "100px");
+                }
+            }
+            
+            function DecreaseSize(balloon, size)
+            {
+                balloon.css("width", (size-5)+"px");
+                balloon.css("height", (size-5)+"px");
+                balloon.css("border-radius", ((size-5)/2)+"px");
+            }
+            
+            $(document).ready(function()
+            {    
+                var balloon = $("#Balloon");
+                var colour = "red";
+                
+                balloon.click(function()
+                {
+                    colour = ChangeColour(balloon, colour);
+                    IncreaseSize(balloon);
+                });
+                
+                balloon.mouseout(function ()
+                {
+                    var size = balloon.width();
+                    
+                    if (size > 200)
+                    {
+                        colour = ReverseChangeColour(balloon, colour);
+                        DecreaseSize(balloon, size);
+                    }
+                });
+            });
+            
+        </script>
+    </head>
+    <body>
+        <div id="Balloon"></div>
+    </body>
+</html>

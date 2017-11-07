@@ -1,0 +1,37 @@
+/* Center website */
+.main 
+{
+	max-width: 1350px;
+	min-width: 1275px;
+	margin: auto;
+}
+
+.row 
+{
+	display: flex;
+	overflow: none;
+	flex-direction: row;
+	margin-bottom: 8px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column 
+{
+padding: 8px;
+}
+
+/* Clear floats after rows */ 
+.row:after 
+{
+content: "";
+display: table;
+clear: both;
+}
+
+/* Create four equal columns that floats next to each other */
+.column 
+{
+	width: 25%;
+	max-height: 500px;
+}

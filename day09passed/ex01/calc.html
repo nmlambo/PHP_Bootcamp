@@ -1,0 +1,69 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>calc.html</title>
+        <script>
+            setInterval(function(){ alert("Please, use me..."); }, 30000);
+            function calc() {
+                var left = parseInt(document.getElementById("l_s").value);
+                var right = parseInt(document.getElementById("r_s").value);
+                if (isNaN(left) == true || isNaN(right) == true)
+                    alert("Error :(");
+                else {
+                    if (left < 0 || right < 0 || (left % 1 === 0) == false || (right % 1 === 0) == false)
+                        alert("Error :(");
+                    else {
+                        switch (document.getElementById("op").value) {
+                            case "plus":
+                                alert(left + right);
+                                console.log(left + right);
+                                break;
+                            case "minus":
+                                alert(left - right);
+                                console.log(left - right);
+                                break;
+                            case "mult":
+                                alert(left * right);
+                                console.log(left * right);
+                                break;
+                            case "div":
+                                if (right != 0) {
+                                    alert(left / right);
+                                    console.log(left / right);
+                                }
+                                else {
+                                    alert("It's over 9000!");
+                                    console.log("It's over 9000!");
+                                }
+                                break;
+                            case "mod":
+                                if (right != 0) {
+                                    alert(left % right);
+                                    console.log(left % right);
+                                }
+                                else {
+                                    alert("It's over 9000!");
+                                    console.log("It's over 9000!");
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form onsubmit="return false">
+            <input type="text" name="left_side" value="" id="l_s">
+            <select name="operator" id="op">
+                <option value="plus">+</option>
+                <option value="minus">-</option>
+                <option value="mult">*</option>
+                <option value="div">/</option>
+                <option value="mod">%</option>
+            </select>
+            <input type="text" name="right_side" value="" id="r_s">
+            <input type="submit" name="try_me" value="Try me!" onclick="calc()">
+        </form>
+    </body>
+</html>
